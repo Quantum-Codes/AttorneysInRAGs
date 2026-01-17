@@ -1,9 +1,9 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from typing import Any
-from module_2 import RelevanceFilter
-from module_3_4 import find_violations
-from module_5 import run_inference
+from backend.module_2 import RelevanceFilter
+from backend.module_3_4 import find_violations
+from backend.module_5 import run_inference
 import json
 
 app = FastAPI(title="AttorneysInRAGs API")
