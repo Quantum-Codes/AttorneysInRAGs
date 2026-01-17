@@ -14,8 +14,8 @@ AttorneysInRAGs analyzes legal documents through a multi-stage pipeline:
 
 ```
 ┌─────────────┐    ┌──────────────┐    ┌─────────────┐    ┌──────────────┐
-│  Input ToS  │───▶│  Filter      │───▶│  Vector DB  │───▶│  LLM         │
-│  Document   │    │  (filter.py)  │    │  (matcher)│   │  (inference)  │
+│  Input ToS  │───▶│  Filter      │───▶│  Vector DB  │───▶│  LLM        │
+│  Document   │    │  (filter.py)  │    │  (matcher)  │   │  (inference)  │
 └─────────────┘    └──────────────┘    └─────────────┘    └──────────────┘
                          │                    │                   │
                    Ontology + AI        ChromaDB +            Ollama +
