@@ -29,7 +29,6 @@ class Aggregations(BaseModel):
 
 class AnalysisOutput(BaseModel):
     summary: str
-    safety_score: float
     aggregations: Aggregations
     violations: list[Violation]
 
@@ -57,12 +56,9 @@ def build_response(accepted_matches: list[dict], inference_result: dict) -> dict
                 })
     
     total = len(violations)
-    total_checked = len(analysis) if analysis else 1
-    safety_score = round(1.0 - (total / total_checked), 2) if total_checked else 1.0
     
     return {
         "summary": summary,
-        "safety_score": safety_score,
         "aggregations": {
             "total_violations": total,
             "critical_severity": severity_counts.get("CRITICAL", 0),
@@ -94,7 +90,6 @@ def analyze_text(input_data: TextInput):
     if not accepted_matches:
         return AnalysisOutput(
             summary="No potential violations found.",
-            safety_score=1.0,
             aggregations=Aggregations(
                 total_violations=0,
                 critical_severity=0,
