@@ -1,6 +1,3 @@
-# THIS IS NOT SVO. BUT THIS REMOVES STOPWORDS AND REPEATS FOR THE COSINE SIMILARITY CALCULATION
-# THIS IS ACCEPTABLE
-
 import spacy, time
 from pathlib import Path
 from typing import Dict, Any, List
@@ -19,7 +16,7 @@ def project_paths() -> Dict[str, Path]:
 # init
 nlp = spacy.load("en_core_web_sm")
 embedder_model = SentenceTransformer("BAAI/bge-small-en-v1.5")
-client = chromadb.Client()
+# Ensure we use the PersistentClient to access the DB created in previous steps
 paths = project_paths()
 client = chromadb.PersistentClient(path=str(paths["chroma_dir"]))
 collection = client.get_collection(name="policies")
@@ -27,7 +24,7 @@ collection = client.get_collection(name="policies")
 # Words that change legal meaning - NEVER remove these
 LEGAL_OPERATORS = {"not", "no", "never", "only", "unless", "except", "if", "then"}
 
-def legal_distill(text):
+def legal_distill(text: str) -> str:
     doc = nlp(text)
     clean_tokens = []
     
@@ -52,24 +49,75 @@ def build_embeddings(model: SentenceTransformer, texts: list[str]) -> list[list[
     # Normalize embeddings for cosine: improves recall and consistency
     return model.encode(texts, normalize_embeddings=True).tolist()
 
-def cosine_similarity(embeddings: list[list[float]]) -> dict:
+def process_matches(results: Dict[str, Any], original_texts: List[str], threshold: float = 0.45) -> List[Dict[str, Any]]:
     """
-    EXAMPLE RETURN in experimentation/cosine.json
-
-    SCORES ARE:
-    Distance = 0.0: The embeddings are identical (Exact same direction).
-    Distance = 1.0: The embeddings are orthogonal (Unrelated).
-    Distance = 2.0: The embeddings are opposites (Pointing in different directions).
-
-    threshold can be < 0.45 for valid.
-    IMPLEMENT WHERE CLAUSE ON domain LATER
-    IMPLEMENT THRESHOLDING HERE LATER if makes sense
+    Filters and formats ChromaDB query results.
+    
+    Args:
+        results: The raw dictionary returned by collection.query()
+        original_texts: The list of original ToS sentences (not distilled) corresponding to the query order.
+        threshold: The distance cutoff (default 0.45). Matches with distance > threshold are discarded.
+        
+    Returns:
+        A list of dictionaries representing the accepted rules ready for the LLM prompt.
     """
-    laws = collection.query(
+    accepted_rules = []
+
+    # Iterate through each query sentence (i)
+    # results['distances'] is a list of lists: [[d1, d2], [d3, d4]]
+    for i, distances in enumerate(results['distances']):
+        original_tos = original_texts[i]
+        
+        # Iterate through the matches for this sentence (j)
+        for j, dist in enumerate(distances):
+            
+            # 1. THRESHOLD FILTERING
+            if dist < threshold:
+                metadata = results['metadatas'][i][j]
+                rationale = results['documents'][i][j]
+                
+                # Parse domain string back to list (it's stored as comma-sep string)
+                domain_str = metadata.get('domain', "")
+                domain_list = [d.strip() for d in domain_str.split(',')] if domain_str else []
+
+                # 2. FORMATTING
+                rule_match = {
+                    "rule_id": metadata.get('rule_id'),
+                    "distance": dist, # Useful for debugging or sorting priority
+                    "domain": domain_list,
+                    "raw_law": metadata.get('raw_law'),
+                    "TOS_text": original_tos, # The original text for the LLM to analyze
+                    "severity": metadata.get('severity'),
+                    "rationale": rationale # The cleaned rationale from the DB
+                }
+                
+                accepted_rules.append(rule_match)
+
+    return accepted_rules
+
+def find_violations(original_sentences: List[str]) -> List[Dict[str, Any]]:
+    """
+    Main pipeline function: Distill -> Embed -> Query -> Filter -> Format
+    """
+    # 1. Distill
+    distilled_sentences = [legal_distill(text) for text in original_sentences]
+    
+    # 2. Embed
+    embeddings = build_embeddings(embedder_model, distilled_sentences)
+    
+    # 3. Query (Fetch top 2 to check against threshold)
+    # We query MORE than 1 (n_results=2) to handle cases where two different laws might apply,
+    # but the threshold will ensure we don't return garbage.
+    raw_results = collection.query(
         query_embeddings=embeddings,
-        n_results=2,
+        n_results=2, 
+        # include=['metadatas', 'documents', 'distances'] is default
     )
-    return laws
+    
+    # 4. Process & Filter
+    matches = process_matches(raw_results, original_sentences, threshold=0.45)
+    
+    return matches
 
 
 # --- TEST ---
@@ -77,28 +125,17 @@ if __name__ == "__main__":
     tos_1 = "If a transfer of any Customer Data from Salesforce to Supplier occurs in connection with the Licensed Software then, notwithstanding anything to the contrary, Section 3(v) of these Software Terms shall apply."
     tos_2 = "Supplier will deliver the most current version of the Licensed Software to Salesforce via electronic delivery or load-and-leave services, and will not deliver tangible materials to Salesforce without Salesforce’s advance written consent"
 
+    input_sentences = [tos_1, tos_2]
 
-    # module 3
     t1 = time.time()
-    tos1 = legal_distill(tos_1)
-    tos2 = legal_distill(tos_2)
-    print(f"Distilled 1: {tos1}")
-    print(f"Distilled 2: {tos2}")
-    print(f"Time taken: {time.time() - t1} seconds")
     
-    # module 4
-    t1 = time.time()
-    embeddings = build_embeddings(embedder_model, [tos1, tos2])
-    laws = cosine_similarity(embeddings)
+    # Run the full pipeline
+    accepted_matches = find_violations(input_sentences)
+    
     t2 = time.time()
-    print(f"ChromaDB query time taken: {t2 - t1} seconds")
     
-
+    print(f"Total Pipeline Time: {t2 - t1:.4f} seconds")
+    print(f"Accepted Matches: {len(accepted_matches)}")
     
-
-"""
-OUT:
-Distilled 1: if transfer customer data salesforce supplier connection licensed software then contrary section 3(v term
-Distilled 2: supplier deliver version licensed software salesforce delivery load leave service not material advance write consent
-Time taken: 0.012683868408203125 seconds
-"""
+    import json
+    print(json.dumps(accepted_matches, indent=2))
