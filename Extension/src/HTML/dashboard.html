@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Policy Risk Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="../scripts/chart.umd.js"></script>
+    <!-- Chart.js -->
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, sans-serif;
+        background: #0f172a;
+        color: #e5e7eb;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 24px;
+      }
+
+      h1 {
+        font-size: 28px;
+        margin-bottom: 4px;
+      }
+
+      .subtitle {
+        color: #94a3b8;
+        margin-bottom: 24px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        background: #020617;
+        border-radius: 14px;
+        padding: 18px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .metric {
+        font-size: 34px;
+        font-weight: 700;
+      }
+
+      .label {
+        color: #94a3b8;
+        font-size: 14px;
+      }
+
+      .risk-high {
+        color: #ef4444;
+      }
+
+      .risk-medium {
+        color: #f59e0b;
+      }
+
+      .risk-low {
+        color: #22c55e;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 12px;
+      }
+
+      th,
+      td {
+        text-align: left;
+        padding: 10px;
+        border-bottom: 1px solid #1e293b;
+        font-size: 14px;
+      }
+
+      th {
+        color: #cbd5f5;
+      }
+
+      .badge {
+        padding: 4px 10px;
+        border-radius: 999px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .badge-high {
+        background: rgba(239, 68, 68, 0.15);
+        color: #ef4444;
+      }
+
+      .badge-medium {
+        background: rgba(245, 158, 11, 0.15);
+        color: #f59e0b;
+      }
+
+      .badge-low {
+        background: rgba(34, 197, 94, 0.15);
+        color: #22c55e;
+      }
+
+      canvas {
+        max-height: 320px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Terms & Policy Risk Dashboard</h1>
+      <div class="subtitle">Automated analysis of Terms & Conditions</div>
+
+      <!-- KPI CARDS -->
+      <div class="grid">
+        <div class="card">
+          <div class="metric safety-score"></div>
+          <div class="label">Safety Score</div>
+        </div>
+
+        <div class="card">
+          <div class="metric violations"></div>
+          <div class="label">Total Violations</div>
+        </div>
+
+        <div class="card">
+          <div class="metric risk-high"></div>
+          <div class="label">High Severity</div>
+        </div>
+
+        <div class="card">
+          <div class="metric risk-medium"></div>
+          <div class="label">Medium Severity</div>
+        </div>
+
+        <div class="card">
+          <div class="metric risk-low"></div>
+          <div class="label">Low Severity</div>
+        </div>
+
+      </div>
+
+      <!-- CHARTS -->
+      <div class="grid" style="margin-top: 24px">
+        <div class="card">
+          <h3>Severity Distribution</h3>
+          <canvas id="severityChart"></canvas>
+        </div>
+
+        <div class="card">
+          <h3>Violations by Source</h3>
+          <canvas id="sourceChart"></canvas>
+        </div>
+      </div>
+
+      <div class= "card"  style="margin-top: 24p"x>
+       <h3>Summary</h3> 
+        <div class= "summary"></div>
+      </div>
+      <!-- TABLE -->
+      <div class="card" style="margin-top: 24px">
+        <h3>Violation Details</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Rule (TOS)</th>
+              <th>Actual Policy</th>
+              <th>Source</th>
+              <th>Severity</th>
+            </tr>
+          </thead>
+          <tbody id="violationsTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script type="module" src="../scripts/dashboard.js"></script>
+  </body>
+</html>

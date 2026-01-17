@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LexGuard</title>
+    <link rel="stylesheet" href="../CSS/popup.css">
+</head>
+
+<body>
+    <div id="main-div" class="popup-container dark-theme">
+
+        <div class="top-bar">
+            <div class="dark-mode-toggle">
+                <input type="checkbox" id="toggle-dark-mode" class="checkbox">
+                <label for="toggle-dark-mode" class="label"></label>
+            </div>
+        </div>
+
+        <h1 id="Header"><span id="policy">LexGuard</span></h1>
+
+        <button hidden id="privacyPolicyButton">Summarise Privacy Policy</button>
+        <button hidden id="termsConditionsButton">Summarise Terms</button>
+        <button hidden id="genericSummariseButton">Summarise</button>
+
+        <div hidden id="incorrectDiv" class="incorrectClassificationDiv">
+            <h5 title="Incorrect document type?"
+                id="incorrectText" class="incorrectClassificationText">Incorrect?</h5>
+        </div>
+
+
+    </div>
+
+    <!--Script file is .js, as it is compiled into js from ts upon build-->
+    <script src="../scripts/popup.js"></script>
+</body>
+</html>

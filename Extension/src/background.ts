@@ -1,0 +1,119 @@
+// Chrome Extension's Service Worker
+// Handles some properties regarding the extension which can't be handled in scripts
+
+let received_summary: string | undefined = undefined
+let classification: string | undefined = undefined
+let documentLength: number | undefined = undefined
+let startTime: number | undefined = undefined
+let docType: string | undefined = undefined
+let pageURL: string | undefined = undefined
+let rawText: string | undefined = undefined
+
+chrome.runtime.onInstalled.addListener(() => {
+  // initialise badge to off
+  void chrome.action.setBadgeText({
+    text: "OFF",
+  });
+
+  // Initialise to dark mode default
+  void chrome.storage.sync.set({ "isDark": true })
+});
+
+chrome.runtime.onMessage.addListener((request, _, sendResponse) => {
+  if (request.message === "on_badge") {
+    void chrome.action.setBadgeText({
+      text: "ON",
+    })
+  }
+  if (request.message === "off_badge") {
+    void chrome.action.setBadgeText({
+      text: "OFF",
+    })
+  }
+  if (request.message === "receive_raw_text") {
+    // 1. Persist to storage immediately
+    chrome.storage.local.set({
+      rawText: request.rawText,
+      docType: request.doctype,
+      pageURL: request.pageURL
+    }, () => {
+      // 2. Only after saving, open the new UI
+      void chrome.action.setPopup({ popup: "HTML/popup.html" });
+      void chrome.tabs.create({ url: "HTML/dashboard.html" });
+    });
+    // Return true if you plan to use sendResponse asynchronously
+  }
+
+  // Modified fetch_raw_text to pull from storage as a fallback
+  if (request.message === "fetch_raw_text") {
+    chrome.storage.local.get(["rawText", "docType", "pageURL"], (data) => {
+      sendResponse(data);
+    });
+  }
+
+  if (request.message === "done_badge") {
+    void chrome.action.setBadgeText({
+      text: "DONE",
+    })
+  }
+
+  // Opens a new tab with the "summaryPage.html" file and resets the popup html.
+  if (request.message === "receive_response") {
+    received_summary = request.summary // stores the summary in variable "received_summary"
+    classification = request.classification
+    docType = request.doctype
+    pageURL = request.pageURL
+
+    // if the received summary is undefined - an error occurred in summarisation - handle it.
+    if (received_summary === undefined) {
+      // set current popup to default
+      void chrome.action.setPopup({ popup: "HTML/popup.html" });
+      // Open new tab with error screen.
+      void chrome.tabs.create({ url: "HTML/errorPage.html" })
+    }
+
+    else {
+      void chrome.action.setPopup({ popup: "HTML/popup.html" });
+      void chrome.tabs.create({ url: "HTML/dashboard.html" })
+    }
+    // Resetting documentLength and start time to undefined after summary is sent.
+    // This hack prevents a bug with time estimation during race conditions in loading.ts
+    documentLength = undefined
+    startTime = undefined
+  }
+
+  // sends the stored summary to the requester.
+  if (request.message === "fetch_raw_text") {
+    sendResponse({
+      rawText,
+      docType,
+      pageURL
+    })
+  }
+
+  // Changes the popup HTML to a loading HTML.
+  // Also sends out a message with the summary length (received by loading.ts)
+  if (request.message === "setLoading") {
+    startTime = Date.now()
+    documentLength = request.documentLength
+    void chrome.action.setPopup({ popup: "HTML/loading.html" });
+    void chrome.runtime.sendMessage({ "message": `send_summary_length`, "doc_length": documentLength })
+    void chrome.runtime.sendMessage({ "message": `send_start_time`, "time": startTime })
+
+  }
+
+  // Changes popup HTML to default "popup.html"
+  if (request.message === "setDefault") {
+    void chrome.action.setPopup({ popup: "HTML/popup.html" });
+  }
+
+  // Returns the most recently processed document's length.
+  // Currently used by Loading.ts
+  if (request.message === "getDocumentLength") {
+    sendResponse({ "docLength": documentLength })
+  }
+
+  if (request.message === "getSummaryStartTime") {
+    sendResponse({ "time": startTime })
+  }
+})
