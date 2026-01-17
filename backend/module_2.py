@@ -155,6 +155,9 @@ class RelevanceFilter:
             if len(text_chunk) < 15:
                 continue
 
+            if "means" in text_chunk.lower(): # skip definitions
+                continue
+
             keep, reason, domains = self._is_relevant(text_chunk)
             
             if keep:

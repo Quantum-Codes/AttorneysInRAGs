@@ -124,28 +124,36 @@ def find_violations(original_sentences: List[Any]) -> List[Dict[str, Any]]:
     embeddings = build_embeddings(embedder_model, distilled_sentences)
     
     # 3. Query (Fetch top 2 to check against threshold)
+
+    # FAIL ATTEMPT AT DOMAIN MATCHING. NEED TO REBUILD DATABASE WITH DUPLICATE DB
+
     # We query MORE than 1 (n_results=2) to handle cases where two different laws might apply,
     # but the threshold will ensure we don't return garbage.
     # Assuming 'detected_domains' is a list like ["DATA_RETENTION", "LOGGING_AUDIT"]
     # Flatten domains and build a permissive where clause.
-    detected_domain_lists = [item.get("domains", []) for item in metadata]
-    flat_domains = sorted({d for lst in detected_domain_lists for d in lst if isinstance(d, str) and d})
+    # detected_domain_lists = [item.get("domains", []) for item in metadata]
+    # flat_domains = sorted({d for lst in detected_domain_lists for d in lst if isinstance(d, str) and d})
 
-    # Attempt metadata prefilter; if rejected by Chroma, fallback to no filter.
-    if flat_domains:
-        # Use supported operator $in for exact matches on single-domain records
-        where_clause = {"domain": {"$in": flat_domains}}
-        raw_results = collection.query(
-            query_embeddings=embeddings,
-            n_results=2,
-            where=where_clause,
-        )
-    else:
-        raw_results = collection.query(
-            query_embeddings=embeddings,
-            n_results=2,
-        )
+    # # Attempt metadata prefilter; if rejected by Chroma, fallback to no filter.
+    # if flat_domains:
+    #     # Use supported operator $in for exact matches on single-domain records
+    #     where_clause = {"domain": {"$in": flat_domains}}
+    #     raw_results = collection.query(
+    #         query_embeddings=embeddings,
+    #         n_results=2,
+    #         where=where_clause,
+    #     )
+    # else:
+    #     raw_results = collection.query(
+    #         query_embeddings=embeddings,
+    #         n_results=2,
+    #     )
     
+    raw_results = collection.query(
+        query_embeddings=embeddings,
+        n_results=1,
+    )
+
     # 4. Process & Filter
     matches = process_matches(raw_results, original_sentences, threshold=0.40)
     
