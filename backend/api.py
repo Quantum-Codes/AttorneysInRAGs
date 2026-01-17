@@ -36,6 +36,16 @@ def build_response(accepted_matches: list[dict], inference_result: dict) -> dict
     analysis = inference_result.get("analysis", [])
     summary = inference_result.get("summary", "Analysis complete.")
     
+    print(f"\n{'='*60}")
+    print(f"BUILD RESPONSE DEBUG")
+    print(f"{'='*60}")
+    print(f"Total matches from vector DB: {len(accepted_matches)}")
+    print(f"Total analysis items from LLM: {len(analysis)}")
+    print(f"\nLLM Analysis:")
+    for item in analysis:
+        print(f"  id={item.get('id')} | violated={item.get('violated')} | irrelevant={item.get('irrelevant')} | reason={item.get('reason', '')[:80]}")
+    print(f"{'='*60}\n")
+    
     violations = []
     severity_counts = {"CRITICAL": 0, "HIGH": 0, "MEDIUM": 0, "LOW": 0}
     
@@ -47,6 +57,8 @@ def build_response(accepted_matches: list[dict], inference_result: dict) -> dict
                 sev = match.get("severity", "MEDIUM").upper()
                 severity_counts[sev] = severity_counts.get(sev, 0) + 1
                 
+                print(f"[VIOLATION FOUND] id={item.get('id')} | severity={sev} | rule_id={match.get('rule_id')}")
+                
                 violations.append({
                     "violating_rule": match.get("TOS_text", ""),
                     "actual_rule": match.get("raw_law", ""),
@@ -56,6 +68,7 @@ def build_response(accepted_matches: list[dict], inference_result: dict) -> dict
                 })
     
     total = len(violations)
+    print(f"\nFinal: {total} violations out of {len(analysis)} analyzed")
     
     return {
         "summary": summary,

@@ -3,6 +3,7 @@
 
 import httpx
 import json
+import re
 
 SYSTEM_PROMPT = """You are a policy compliance analyst who is analysing the compliance of a Terms of Service or Privacy Policy document against actual laws given within the prompt. 
 
@@ -40,6 +41,64 @@ OUTPUT: (needs to be valid JSON and no conversational text)
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL = "mistral:latest"
 
+
+def extract_json(text: str) -> dict | None:
+    """Try multiple strategies to extract valid JSON from LLM response."""
+    
+    # Strategy 1: Direct parse
+    try:
+        return json.loads(text)
+    except json.JSONDecodeError:
+        pass
+    
+    # Strategy 2: Remove markdown code blocks
+    cleaned = re.sub(r'^```(?:json)?\s*', '', text.strip())
+    cleaned = re.sub(r'\s*```$', '', cleaned)
+    try:
+        return json.loads(cleaned)
+    except json.JSONDecodeError:
+        pass
+    
+    # Strategy 3: Find JSON object between first { and last }
+    match = re.search(r'\{.*\}', text, re.DOTALL)
+    if match:
+        try:
+            return json.loads(match.group())
+        except json.JSONDecodeError:
+            pass
+    
+    # Strategy 4: Fix common issues (trailing commas, single quotes)
+    if match:
+        fixed = match.group()
+        # Remove trailing commas before } or ]
+        fixed = re.sub(r',(\s*[}\]])', r'\1', fixed)
+        # Replace single quotes with double quotes (risky but worth trying)
+        try:
+            return json.loads(fixed)
+        except json.JSONDecodeError:
+            pass
+        
+        # Try with single quote replacement
+        fixed_quotes = fixed.replace("'", '"')
+        try:
+            return json.loads(fixed_quotes)
+        except json.JSONDecodeError:
+            pass
+    
+    # Strategy 5: Try to find and parse just the analysis array
+    array_match = re.search(r'"analysis"\s*:\s*(\[.*?\])', text, re.DOTALL)
+    summary_match = re.search(r'"summary"\s*:\s*"([^"]*)"', text)
+    if array_match:
+        try:
+            analysis = json.loads(array_match.group(1))
+            summary = summary_match.group(1) if summary_match else "Analysis complete."
+            return {"analysis": analysis, "summary": summary}
+        except json.JSONDecodeError:
+            pass
+    
+    return None
+
+
 def generate_prompt(law_pairs: list[dict]) -> str:
     pairs_str = "INPUT:\n"
     for i, pair in enumerate(law_pairs):
@@ -70,14 +129,14 @@ def run_inference(law_pairs: list[dict], timeout: float = 150.0, max_retries: in
             
             raw_response = data.get("response", "")
             
-            try:
-                result = json.loads(raw_response)
+            result = extract_json(raw_response)
+            if result is not None:
                 return result
-            except json.JSONDecodeError:
-                last_error = f"Failed to parse JSON from model response: {raw_response[:200]}"
-                if attempt < max_retries:
-                    continue
-                return {"raw": raw_response, "error": last_error}
+            
+            last_error = f"Failed to parse JSON from model response: {raw_response}"
+            if attempt < max_retries:
+                continue
+            return {"raw": raw_response, "error": last_error}
         
         except httpx.ConnectError:
             last_error = "Ollama server not reachable (connection refused)"
