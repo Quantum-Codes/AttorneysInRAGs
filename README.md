@@ -15,7 +15,7 @@ AttorneysInRAGs analyzes legal documents through a multi-stage pipeline:
 ```
 ┌─────────────┐    ┌──────────────┐    ┌─────────────┐    ┌──────────────┐
 │  Input ToS  │───▶│  Filter      │───▶│  Vector DB  │───▶│  LLM         │
-│  Document   │    │  (module_2)  │    │  (module_3_4)│   │  (module_5)  │
+│  Document   │    │  (filter.py)  │    │  (matcher)│   │  (inference)  │
 └─────────────┘    └──────────────┘    └─────────────┘    └──────────────┘
                          │                    │                   │
                    Ontology + AI        ChromaDB +            Ollama +
@@ -115,9 +115,9 @@ AttorneysInRAGs/
 ├── backend/
 │   ├── api.py              # FastAPI server
 │   ├── main.py             # CLI pipeline runner
-│   ├── module_2.py         # RelevanceFilter (ontology + AI)
-│   ├── module_3_4.py       # Vector search + matching
-│   ├── module_5.py         # LLM inference (Ollama)
+│   ├── filter.py         # RelevanceFilter (ontology + AI)
+│   ├── matcher.py       # Vector search + matching
+│   ├── inference.py         # LLM inference (Ollama)
 │   ├── text.txt            # Sample input for testing
 │   └── database/
 │       ├── db.json         # Law rules database
@@ -134,7 +134,7 @@ AttorneysInRAGs/
 Uses `BAAI/bge-small-en-v1.5` (384-dim) for fast, high-quality embeddings.
 
 ### LLM
-Default: Ollama with `mistral:latest`. Configure in `backend/module_5.py`:
+Default: Ollama with `mistral:latest`. Configure in `backend/inference.py`:
 
 ```python
 OLLAMA_URL = "http://localhost:11434/api/generate"
@@ -142,7 +142,7 @@ MODEL = "mistral:latest"
 ```
 
 ### Similarity Threshold
-Adjust in `backend/module_3_4.py`:
+Adjust in `backend/matcher.py`:
 
 ```python
 threshold=0.40  # Lower = stricter matching
@@ -162,6 +162,17 @@ threshold=0.40  # Lower = stricter matching
 - `SENSITIVE_DATA` - Special category data rules
 - `CHILDREN_DATA` - Minor protection rules
 - `LOGGING_AUDIT` - Audit trail requirements
+
+## Law documents used
+IT Act, 2000 Sections 43 & 66
+
+DPDP Act, 2023
+
+IT Security Practices Rules
+
+CERT-In Guidelines
+
+IT Intermediary Guidelines
 
 ## License
 

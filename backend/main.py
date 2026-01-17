@@ -1,6 +1,6 @@
-from module_2 import RelevanceFilter
-from module_3_4 import find_violations
-from module_5 import run_inference
+from backend.filter import RelevanceFilter
+from backend.matcher import find_violations
+from backend.inference import run_inference
 import json, time
 
 legal_filter = RelevanceFilter()
