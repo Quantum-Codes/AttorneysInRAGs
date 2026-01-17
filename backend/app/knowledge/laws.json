@@ -1,0 +1,1117 @@
+[
+  {
+    "rule_id": "IT_ACT_SEC_7",
+    "domain": [
+      "DATA_RETENTION"
+    ],
+    "raw_law": "Where any law provides that documents, records or information shall be retained for any specific period, then, that requirement shall be deemed to have been satisfied if such documents, records or information are retained in the electronic form, if the information contained therein remains accessible so as to be usable for a subsequent reference.",
+    "severity": "MEDIUM",
+    "rationale": "Ensures that electronic records are retained in a format that remains accessible and usable for subsequent reference to satisfy legal retention requirements[cite: 303, 304]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_43",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "LIABILITY"
+    ],
+    "raw_law": "If any person without permission of the owner... accesses... downloads, copies or extracts any data... introduces or causes to be introduced any computer contaminant... he shall be liable to pay damages by way of compensation to the person so affected.",
+    "severity": "HIGH",
+    "rationale": "Imposes civil liability and compensation requirements for unauthorized access, data extraction, and introduction of contaminants (viruses) into computer systems[cite: 527, 528, 537, 538, 546]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_43A",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "SENSITIVE_DATA",
+      "LIABILITY"
+    ],
+    "raw_law": "Where a body corporate, possessing, dealing or handling any sensitive personal data or information in a computer resource which it owns, controls or operates, is negligent in implementing and maintaining reasonable security practices and procedures and thereby causes wrongful loss or wrongful gain to any person, such body corporate shall be liable to pay damages by way of compensation to the person so affected.",
+    "severity": "CRITICAL",
+    "rationale": "Mandates that body corporates handling sensitive personal data must implement reasonable security practices or face liability for negligence leading to wrongful loss/gain[cite: 554, 560, 561]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_66E",
+    "domain": [
+      "SENSITIVE_DATA",
+      "USER_RIGHTS",
+      "LIABILITY"
+    ],
+    "raw_law": "Whoever, intentionally or knowingly captures, publishes or transmits the image of a private area of any person without his or her consent, under circumstances violating the privacy of that person, shall be punished with imprisonment which may extend to three years or with fine.",
+    "severity": "HIGH",
+    "rationale": "Protects user privacy rights by criminalizing the capture or transmission of images of private areas without consent[cite: 666, 675]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_67B",
+    "domain": [
+      "CHILDREN_DATA",
+      "LIABILITY"
+    ],
+    "raw_law": "Whoever... publishes or transmits... material in any electronic form which depicts children engaged in sexually explicit act or conduct... or facilitates abusing children online... shall be punished on first conviction with imprisonment of either description for a term which may extend to five years.",
+    "severity": "CRITICAL",
+    "rationale": "Strictly prohibits and penalizes the publication, transmission, or facilitation of material depicting children in sexually explicit acts or online abuse[cite: 696, 697, 704, 706]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_67C",
+    "domain": [
+      "INTERMEDIARY_DUTIES",
+      "DATA_RETENTION",
+      "LOGGING_AUDIT"
+    ],
+    "raw_law": "Intermediary shall preserve and retain such information as may be specified for such duration and in such manner and format as the Central Government may prescribe. Any intermediary who intentionally or knowingly contravenes... shall be punished.",
+    "severity": "HIGH",
+    "rationale": "Imposes a mandatory duty on intermediaries to retain specific information and logs for a prescribed duration to aid in law enforcement and auditing[cite: 712, 713]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_69",
+    "domain": [
+      "INTERMEDIARY_DUTIES",
+      "DATA_SHARING",
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "The subscriber or intermediary or any person in-charge of the computer resource shall, when called upon... extend all facilities and technical assistance to provide access to... or intercept, monitor, or decrypt the information... or provide information stored in computer resource.",
+    "severity": "HIGH",
+    "rationale": "Requires intermediaries and subscribers to decrypt information or provide access to government agencies when required for national security or investigation of offenses[cite: 719, 720, 721]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_70B",
+    "domain": [
+      "BREACH_RESPONSE",
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "The Indian Computer Emergency Response Team shall serve as the national agency for... collection, analysis and dissemination of information on cyber incidents; forecast and alerts of cyber security incidents; emergency measures for handling cyber security incidents.",
+    "severity": "HIGH",
+    "rationale": "Establishes CERT-In as the national agency for cyber incidents and mandates compliance with its directions regarding breach response and security alerts[cite: 750, 753, 754, 756]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_72A",
+    "domain": [
+      "DATA_SHARING",
+      "CONSENT",
+      "SENSITIVE_DATA"
+    ],
+    "raw_law": "Any person including an intermediary who, while providing services under the terms of lawful contract, has secured access to any material containing personal information about another person, with the intent to cause or knowing that he is likely to cause wrongful loss or wrongful gain discloses, without the consent of the person concerned, or in breach of a lawful contract, such material to any other person, shall be punished.",
+    "severity": "HIGH",
+    "rationale": "Prohibits service providers and intermediaries from disclosing personal information obtained under contract to third parties without consent[cite: 767, 768, 772]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_79",
+    "domain": [
+      "INTERMEDIARY_DUTIES",
+      "LIABILITY",
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "An intermediary shall not be liable for any third party information... if... the intermediary observes due diligence while discharging his duties under this Act and also observes such other guidelines as the Central Government may prescribe.",
+    "severity": "CRITICAL",
+    "rationale": "Provides safe harbor protection to intermediaries from liability for third-party content, conditional on their observance of due diligence and prescribed government guidelines[cite: 797, 804]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_66C",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "USER_RIGHTS",
+      "LIABILITY"
+    ],
+    "raw_law": "Whoever, fraudulently or dishonestly make use of the electronic signature, password or any other unique identification feature of any other person, shall be punished with imprisonment of either description for a term which may extend to three years and shall also be liable to fine which may extend to rupees one lakh.",
+    "severity": "HIGH",
+    "rationale": "Criminalizes identity theft and unauthorized use of passwords or electronic signatures[cite: 103, 663]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_66D",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "LIABILITY"
+    ],
+    "raw_law": "Whoever, by means of any communication device or computer resource cheats by personation, shall be punished with imprisonment of either description for a term which may extend to three years and shall also be liable to fine which may extend to one lakh rupees.",
+    "severity": "HIGH",
+    "rationale": "Penalizes cheating by impersonation using computer resources or communication devices[cite: 104, 664, 665]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_66F",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "LIABILITY",
+      "SENSITIVE_DATA"
+    ],
+    "raw_law": "Whoever... with intent to threaten the unity, integrity, security or sovereignty of India... denying or cause the denial of access to any person authorised to access computer resource... or penetrating/accessing a computer resource without authorisation... commits the offence of cyber terrorism.",
+    "severity": "CRITICAL",
+    "rationale": "Defines and severely punishes cyber terrorism acts including denial of access and unauthorized penetration of critical systems[cite: 106, 680, 681, 682, 683, 689]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_67",
+    "domain": [
+      "SENSITIVE_DATA",
+      "LIABILITY"
+    ],
+    "raw_law": "Whoever publishes or transmits or causes to be published or transmitted in the electronic form, any material which is lascivious or appeals to the prurient interest... shall be punished on first conviction with imprisonment of either description for a term which may extend to three years.",
+    "severity": "HIGH",
+    "rationale": "Prohibits the electronic publication or transmission of obscene material[cite: 107, 691, 692]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_70_1",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "SENSITIVE_DATA"
+    ],
+    "raw_law": "The appropriate Government may, by notification in the Official Gazette, declare any computer resource which directly or indirectly affects the facility of Critical Information Infrastructure, to be a protected system.",
+    "severity": "CRITICAL",
+    "rationale": "Empowers the government to designate critical infrastructure systems as 'protected systems' requiring higher security standards[cite: 117, 738]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_70_3",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "LIABILITY",
+      "BREACH_RESPONSE"
+    ],
+    "raw_law": "Any person who secures access or attempts to secure access to a protected system in contravention of the provisions of this section shall be punished with imprisonment of either description for a term which may extend to ten years and shall also be liable to fine.",
+    "severity": "CRITICAL",
+    "rationale": "Imposes severe penalties (up to 10 years imprisonment) for unauthorized access to designated protected systems[cite: 741]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_72",
+    "domain": [
+      "SENSITIVE_DATA",
+      "CONSENT",
+      "LIABILITY"
+    ],
+    "raw_law": "If any person who, in pursuance of any of the powers conferred under this Act... has secured access to any electronic record... without the consent of the person concerned discloses such electronic record... to any other person shall be punished with imprisonment.",
+    "severity": "HIGH",
+    "rationale": "Penalizes the breach of confidentiality and privacy by officials or persons with authorized access who disclose data without consent[cite: 121, 765]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_69A",
+    "domain": [
+      "INTERMEDIARY_DUTIES",
+      "DATA_SHARING",
+      "LIABILITY"
+    ],
+    "raw_law": "Where the Central Government... is satisfied that it is necessary... direct any agency of the Government or intermediary to block for access by the public or cause to be blocked for access by the public any information generated, transmitted, received, stored or hosted in any computer resource.",
+    "severity": "CRITICAL",
+    "rationale": "Empowers the government to issue blocking orders for public access to information, binding intermediaries to comply[cite: 114, 727, 728]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_69B",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "DATA_COLLECTION",
+      "LOGGING_AUDIT"
+    ],
+    "raw_law": "The Central Government may... authorise any agency of the Government to monitor and collect traffic data or information generated, transmitted, received or stored in any computer resource... for cyber security.",
+    "severity": "HIGH",
+    "rationale": "Allows the government to authorize agencies to monitor and collect traffic data for cybersecurity purposes[cite: 115, 731]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_6A",
+    "domain": [
+      "DATA_COLLECTION",
+      "INTERMEDIARY_DUTIES"
+    ],
+    "raw_law": "The appropriate Government may... authorise any service provider authorised under sub-section (1) to collect, retain and appropriate such service charges, as may be prescribed... for the purpose of providing such services.",
+    "severity": "MEDIUM",
+    "rationale": "Authorizes service providers to deliver government services electronically and collect/retain service charges[cite: 15, 297, 299]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_44",
+    "domain": [
+      "LOGGING_AUDIT",
+      "LIABILITY",
+      "INTERMEDIARY_DUTIES"
+    ],
+    "raw_law": "If any person who is required under this Act... to furnish any document, return or report... fails to furnish the same, he shall be liable to a penalty... or maintain books of account or records, fails to maintain the same, he shall be liable to a penalty.",
+    "severity": "MEDIUM",
+    "rationale": "Imposes financial penalties for failure to furnish required documents, returns, or maintain books of accounts/records[cite: 69, 563, 564, 566]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_10A",
+    "domain": [
+      "CONSENT",
+      "USER_RIGHTS"
+    ],
+    "raw_law": "Where in a contract formation, the communication of proposals, the acceptance of proposals, the revocation of proposals and acceptances... are expressed in electronic form... such contract shall not be deemed to be unenforceable solely on the ground that such electronic form or means was used.",
+    "severity": "LOW",
+    "rationale": "Validates the legal enforceability of contracts formed through electronic means, ensuring electronic consent is binding[cite: 21, 324]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_84A",
+    "domain": [
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "The Central Government may, for secure use of the electronic medium and for promotion of e-governance and e-commerce, prescribe the modes or methods for encryption.",
+    "severity": "MEDIUM",
+    "rationale": "Empowers the government to prescribe specific encryption standards and methods for securing electronic communications[cite: 147, 838]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_40A",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "USER_RIGHTS"
+    ],
+    "raw_law": "In respect of Electronic Signature Certificate the subscriber shall perform such duties as may be prescribed.",
+    "severity": "MEDIUM",
+    "rationale": "Mandates that subscribers of Electronic Signature Certificates must adhere to prescribed duties, implying security responsibilities[cite: 63, 513]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_65",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "LIABILITY",
+      "DATA_Retention"
+    ],
+    "raw_law": "Whoever knowingly or intentionally conceals, destroys or alters or intentionally or knowingly causes another to conceal, destroy, or alter any computer source code used for a computer, computer programme, computer system or computer network... shall be punishable with imprisonment up to three years, or with fine.",
+    "severity": "HIGH",
+    "rationale": "Criminalizes the tampering, concealment, or destruction of computer source code required to be maintained by law[cite: 644]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_66",
+    "domain": [
+      "LIABILITY",
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "If any person, dishonestly or fraudulently, does any act referred to in section 43, he shall be punishable with imprisonment for a term which may extend to three years or with fine which may extend to five lakh rupees or with both.",
+    "severity": "HIGH",
+    "rationale": "Elevates civil breaches (like unauthorized access or damage) to criminal offenses when committed dishonestly or fraudulently[cite: 646]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_66B",
+    "domain": [
+      "LIABILITY",
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "Whoever dishonestly receive or retains any stolen computer resource or communication device knowing or having reason to believe the same to be stolen... shall be punished with imprisonment... or with fine.",
+    "severity": "HIGH",
+    "rationale": "Penalizes the receipt or retention of stolen computer resources or devices[cite: 662]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_67A",
+    "domain": [
+      "SENSITIVE_DATA",
+      "LIABILITY"
+    ],
+    "raw_law": "Whoever publishes or transmits or causes to be published or transmitted in the electronic form any material which contains sexually explicit act or conduct shall be punished on first conviction with imprisonment... which may extend to five years and with fine.",
+    "severity": "CRITICAL",
+    "rationale": "Specifically criminalizes the electronic transmission of material containing sexually explicit acts[cite: 694]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_15",
+    "domain": [
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "An electronic signature shall be deemed to be a secure electronic signature if the signature creation data, at the time of affixing signature, was under the exclusive control of signatory and no other person; and was stored and affixed in such exclusive manner as may be prescribed.",
+    "severity": "MEDIUM",
+    "rationale": "Defines the criteria for a 'secure' electronic signature, emphasizing exclusive control and secure storage [cite: 358-361]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_16",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "POLICY_CHANGES"
+    ],
+    "raw_law": "The Central Government may... prescribe the security procedures and practices... having regard to the commercial circumstances, nature of transactions and such other related factors.",
+    "severity": "MEDIUM",
+    "rationale": "Empowers the government to mandate specific security procedures and practices for secure records [cite: 363-364]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_30",
+    "domain": [
+      "INTERMEDIARY_DUTIES",
+      "SECURITY_PRACTICES",
+      "LOGGING_AUDIT"
+    ],
+    "raw_law": "Every Certifying Authority shall... make use of hardware, software and procedures that are secure from intrusion and misuse... adhere to security procedures... be the repository of all electronic signature Certificates issued... and publish information regarding its practices.",
+    "severity": "HIGH",
+    "rationale": "Mandates Certifying Authorities to use secure hardware/software, maintain repositories, and publish practice statements [cite: 440-444]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_34",
+    "domain": [
+      "INTERMEDIARY_DUTIES",
+      "POLICY_CHANGES",
+      "BREACH_RESPONSE"
+    ],
+    "raw_law": "Every Certifying Authority shall disclose... its electronic signature Certificate... any certification practice statement... notice of the revocation or suspension... and any other fact that materially and adversely affects either the reliability of a certificate.",
+    "severity": "MEDIUM",
+    "rationale": "Requires Certifying Authorities to disclose practice statements and adverse facts affecting certificate reliability [cite: 455-459]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_42_1",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "USER_RIGHTS"
+    ],
+    "raw_law": "Every subscriber shall exercise reasonable care to retain control of the private key corresponding to the public key listed in his Digital Signature Certificate and take all steps to prevent its disclosure.",
+    "severity": "MEDIUM",
+    "rationale": "Imposes a duty on subscribers to protect their private keys from disclosure[cite: 522]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_42_2",
+    "domain": [
+      "BREACH_RESPONSE",
+      "USER_RIGHTS"
+    ],
+    "raw_law": "If the private key corresponding to the public key listed in the Digital Signature Certificate has been compromised, then, the subscriber shall communicate the same without any delay to the Certifying Authority.",
+    "severity": "HIGH",
+    "rationale": "Mandates immediate reporting by subscribers if their private key is compromised[cite: 523]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_68",
+    "domain": [
+      "INTERMEDIARY_DUTIES",
+      "LIABILITY"
+    ],
+    "raw_law": "The Controller may, by order, direct a Certifying Authority... to take such measures or cease carrying on such activities... to ensure compliance... Any person who intentionally or knowingly fails to comply... shall be guilty of an offence.",
+    "severity": "HIGH",
+    "rationale": "Empowers the Controller to issue binding directions to Certifying Authorities, with penalties for non-compliance [cite: 714-715]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_71",
+    "domain": [
+      "LIABILITY",
+      "CONSENT"
+    ],
+    "raw_law": "Whoever makes any misrepresentation to, or suppresses any material fact from the Controller or the Certifying Authority for obtaining any licence or electronic signature Certificate... shall be punished with imprisonment... or with fine.",
+    "severity": "HIGH",
+    "rationale": "Penalizes misrepresentation or suppression of facts when obtaining licenses or certificates[cite: 764]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_73",
+    "domain": [
+      "LIABILITY",
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "No person shall publish a electronic signature Certificate... with the knowledge that the Certifying Authority listed in the certificate has not issued it; or the subscriber listed in the certificate has not accepted it; or the certificate has been revoked or suspended.",
+    "severity": "HIGH",
+    "rationale": "Prohibits the publication of false, unaccepted, or revoked electronic signature certificates [cite: 773-776]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_74",
+    "domain": [
+      "LIABILITY",
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "Whoever knowingly creates, publishes or otherwise makes available a electronic signature Certificate for any fraudulent or unlawful purpose shall be punished with imprisonment... or with fine.",
+    "severity": "HIGH",
+    "rationale": "Criminalizes the creation or publication of certificates for fraudulent purposes[cite: 779]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_85",
+    "domain": [
+      "LIABILITY"
+    ],
+    "raw_law": "Where a person committing a contravention... is a company, every person who, at the time the contravention was committed, was in charge of, and was responsible to, the company for the conduct of business... shall be guilty of the contravention.",
+    "severity": "HIGH",
+    "rationale": "Establishes vicarious liability for company officers in charge during a contravention[cite: 842]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_4",
+    "domain": [
+      "USER_RIGHTS",
+      "DATA_RETENTION"
+    ],
+    "raw_law": "Where any law provides that information or any other matter shall be in writing or in the typewritten or printed form, then... such requirement shall be deemed to have been satisfied if such information or matter is rendered or made available in an electronic form; and accessible so as to be usable for a subsequent reference.",
+    "severity": "LOW",
+    "rationale": "Grants legal recognition to electronic records, ensuring they satisfy 'in writing' requirements if accessible for future reference [cite: 282-284]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_12",
+    "domain": [
+      "CONSENT",
+      "USER_RIGHTS"
+    ],
+    "raw_law": "Where the originator has not stipulated that the acknowledgment of receipt of electronic record be given in a particular form... an acknowledgment may be given by any communication by the addressee... or any conduct of the addressee, sufficient to indicate... that the electronic record has been received.",
+    "severity": "LOW",
+    "rationale": "Defines how acknowledgment of receipt constitutes acceptance or delivery when not otherwise stipulated [cite: 331-333]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_3",
+    "domain": [
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "Subject to the provisions of this section any subscriber may authenticate an electronic record by affixing his digital signature. The authentication... shall be effected by the use of asymmetric crypto system and hash function.",
+    "severity": "MEDIUM",
+    "rationale": "Establishes the standard method (asymmetric crypto and hash) for authenticating electronic records via digital signatures [cite: 255-256]."
+  },
+  {
+    "rule_id": "IT_ACT_SEC_69_3",
+    "domain": [
+      "INTERMEDIARY_DUTIES",
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "The subscriber or intermediary... shall, when called upon... extend all facilities and technical assistance to... provide access to... or intercept, monitor, or decrypt the information.",
+    "severity": "CRITICAL",
+    "rationale": "Mandates active technical assistance from intermediaries for decryption and interception upon government order [cite: 719-721]."
+  },
+
+  {
+    "rule_id": "IT_RULES_2021_RULE_3_1_a",
+    "domain": [
+      "POLICY_CHANGES",
+      "INTERMEDIARY_DUTIES"
+    ],
+    "raw_law": "The intermediary shall prominently publish on its website, mobile based application or both... the rules and regulations, privacy policy and user agreement... in English or any language specified in the Eighth Schedule to the Constitution.",
+    "severity": "MEDIUM",
+    "rationale": "Mandates transparency by requiring intermediaries to publish their policies in languages understood by users[cite: 1040, 1060]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_3_1_b",
+    "domain": [
+      "INTERMEDIARY_DUTIES",
+      "SENSITIVE_DATA",
+      "CHILDREN_DATA"
+    ],
+    "raw_law": "The intermediary shall inform its rules and regulations... and shall make reasonable efforts to cause the users of its computer resource to not host, display, upload, modify, publish, transmit, store, update or share any information that... belongs to another person... is obscene... harmful to child... infringes proprietary rights.",
+    "severity": "HIGH",
+    "rationale": "Requires intermediaries to actively prohibit users from hosting harmful, illegal, or infringing content, including content harmful to children [cite: 1061, 1069-1071]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_3_1_b_v_FACT_CHECK",
+    "domain": [
+      "INTERMEDIARY_DUTIES"
+    ],
+    "raw_law": "Information which is patently false and untrue or misleading in nature or, in respect of any business of the Central Government, is identified as fake or false or misleading by such fact check unit of the Central Government.",
+    "severity": "HIGH",
+    "rationale": "Prohibits the hosting of information identified as fake or false regarding Central Government business by a designated fact check unit[cite: 1072]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_3_1_c",
+    "domain": [
+      "POLICY_CHANGES",
+      "USER_RIGHTS"
+    ],
+    "raw_law": "An intermediary shall periodically inform its users, at least once every year, that in case of non-compliance with rules and regulations... it has the right to terminate the access or usage rights of the users... or remove non-compliant information.",
+    "severity": "MEDIUM",
+    "rationale": "Ensures users are annually reminded of the consequences of non-compliance, including account termination[cite: 1089]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_3_1_d",
+    "domain": [
+      "INTERMEDIARY_DUTIES",
+      "LIABILITY",
+      "BREACH_RESPONSE"
+    ],
+    "raw_law": "The intermediary... upon receiving actual knowledge in the form of an order by a court... or on being notified by the Appropriate Government... shall not host, store or publish any unlawful information... and remove or disable access to that information, as early as possible, but in no case later than thirty-six hours.",
+    "severity": "CRITICAL",
+    "rationale": "Mandates strict 36-hour takedown windows for unlawful content upon receiving a court order or government notification[cite: 1091, 1095]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_3_1_f",
+    "domain": [
+      "POLICY_CHANGES",
+      "USER_RIGHTS"
+    ],
+    "raw_law": "The intermediary shall periodically, and at least once in a year, inform its users... of its rules and regulations, privacy policy or user agreement or any change in the rules and regulations, privacy policy or user agreement.",
+    "severity": "LOW",
+    "rationale": "Requires annual communication to users regarding any changes to privacy policies or user agreements[cite: 1100]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_3_1_g",
+    "domain": [
+      "DATA_RETENTION",
+      "LOGGING_AUDIT"
+    ],
+    "raw_law": "Where... any information has been removed or access to which has been disabled, the intermediary shall... preserve such information and associated records for one hundred and eighty days for investigation purposes.",
+    "severity": "HIGH",
+    "rationale": "Obligates intermediaries to retain removed content and associated logs for 180 days to assist in potential investigations[cite: 1105]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_3_1_h",
+    "domain": [
+      "DATA_RETENTION",
+      "DATA_COLLECTION"
+    ],
+    "raw_law": "Where an intermediary collects information from a user for registration on the computer resource, it shall retain his information for a period of one hundred and eighty days after any cancellation or withdrawal of his registration.",
+    "severity": "HIGH",
+    "rationale": "Mandates retention of user registration data for 180 days even after the user has deleted their account[cite: 1106]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_3_1_i",
+    "domain": [
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "The intermediary shall take all reasonable measures to secure its computer resource and information contained therein following the reasonable security practices and procedures as prescribed in the Information Technology (Reasonable Security Practices and Procedures and Sensitive Personal Information) Rules, 2011.",
+    "severity": "HIGH",
+    "rationale": "Enforces adherence to standard security practices (ISO 27001 or equivalent) as per 2011 rules[cite: 1107]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_3_1_j",
+    "domain": [
+      "DATA_SHARING",
+      "INTERMEDIARY_DUTIES"
+    ],
+    "raw_law": "The intermediary shall, as soon as possible, but not later than seventy two hours... provide information under its control or possession, or assistance to the Government agency which is lawfully authorised for investigative or protective or cyber security activities.",
+    "severity": "CRITICAL",
+    "rationale": "Requires intermediaries to provide data or assistance to government agencies within 72 hours for investigations (24 hours for online gaming)[cite: 1108]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_3_1_l",
+    "domain": [
+      "BREACH_RESPONSE",
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "The intermediary shall report cyber security incidents and share related information with the Indian Computer Emergency Response Team in accordance with the policies and procedures.",
+    "severity": "HIGH",
+    "rationale": "Mandates reporting of all cyber security incidents to CERT-In[cite: 1120]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_3_2_a",
+    "domain": [
+      "GRIEVANCE",
+      "USER_RIGHTS"
+    ],
+    "raw_law": "The intermediary shall prominently publish... the name of the Grievance Officer and his contact details... and the Grievance Officer shall acknowledge the complaint within twenty-four hours and resolve such complaint within a period of fifteen days.",
+    "severity": "HIGH",
+    "rationale": "Establishes a mandatory grievance redressal mechanism with strict timelines (24h ack, 15-day resolution)[cite: 1123, 1124]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_3_2_b",
+    "domain": [
+      "SENSITIVE_DATA",
+      "USER_RIGHTS",
+      "BREACH_RESPONSE"
+    ],
+    "raw_law": "The intermediary shall, within twenty-four hours from the receipt of a complaint... in relation to any content which is prima facie in the nature of any material which exposes the private area of such individual, shows such individual in full or partial nudity... take all reasonable and practicable measures to remove or disable access to such content.",
+    "severity": "CRITICAL",
+    "rationale": "Requires rapid (24-hour) removal of non-consensual sexual content or nudity upon complaint[cite: 1134, 1135]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_3A",
+    "domain": [
+      "GRIEVANCE",
+      "USER_RIGHTS"
+    ],
+    "raw_law": "Any person who is aggrieved by a decision of the Grievance Officer... may prefer an appeal to the Grievance Appellate Committee within a period of thirty days... The Grievance Appellate Committee shall deal with such appeal expeditiously... within thirty calendar days.",
+    "severity": "MEDIUM",
+    "rationale": "Allows users to appeal intermediary decisions to a government-appointed Grievance Appellate Committee[cite: 1139, 1140]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_4_1_a",
+    "domain": [
+      "INTERMEDIARY_DUTIES",
+      "LIABILITY"
+    ],
+    "raw_law": "Appoint a Chief Compliance Officer who shall be responsible for ensuring compliance with the Act and rules... and shall be liable in any proceedings... such Chief Compliance Officer [must be] resident in India.",
+    "severity": "HIGH",
+    "rationale": "Significant intermediaries must appoint a resident Chief Compliance Officer who carries personal liability for compliance failures[cite: 1148, 1151]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_4_1_b",
+    "domain": [
+      "INTERMEDIARY_DUTIES",
+      "DATA_SHARING"
+    ],
+    "raw_law": "Appoint a nodal contact person for 24x7 coordination with law enforcement agencies and officers to ensure compliance to their orders or requisitions.",
+    "severity": "HIGH",
+    "rationale": "Requires a 24/7 point of contact for law enforcement coordination[cite: 1152]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_4_1_d",
+    "domain": [
+      "LOGGING_AUDIT",
+      "INTERMEDIARY_DUTIES"
+    ],
+    "raw_law": "Publish periodic compliance report every month mentioning the details of complaints received and action taken thereon, and... the number of specific communication links or parts of information that the intermediary has removed or disabled access to in pursuance of any proactive monitoring.",
+    "severity": "MEDIUM",
+    "rationale": "Mandates monthly transparency reports detailing complaints and content removal actions[cite: 1168]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_4_2",
+    "domain": [
+      "DATA_SHARING",
+      "INTERMEDIARY_DUTIES",
+      "SENSITIVE_DATA"
+    ],
+    "raw_law": "A significant social media intermediary providing services primarily in the nature of messaging shall enable the identification of the first originator of the information on its computer resource as may be required by a judicial order... or an order passed under section 69.",
+    "severity": "CRITICAL",
+    "rationale": "Forces messaging platforms to break anonymity (traceability) to identify the first originator of messages upon government or court order[cite: 1169]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_4_4",
+    "domain": [
+      "CHILDREN_DATA",
+      "SECURITY_PRACTICES",
+      "SENSITIVE_DATA"
+    ],
+    "raw_law": "A significant social media intermediary shall endeavour to deploy technology-based measures, including automated tools... to proactively identify information that depicts any act or simulation in any form depicting rape, child sexual abuse or conduct.",
+    "severity": "HIGH",
+    "rationale": "Requires proactive use of AI/automated tools to detect and remove rape and child sexual abuse material (CSAM)[cite: 1183]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_4_7",
+    "domain": [
+      "USER_RIGHTS",
+      "CONSENT",
+      "DATA_COLLECTION"
+    ],
+    "raw_law": "Shall enable users who register for their services from India... to voluntarily verify their accounts by using any appropriate mechanism... such user shall be provided with a demonstrable and visible mark of verification.",
+    "severity": "LOW",
+    "rationale": "Obligates platforms to offer voluntary account verification (e.g., blue ticks) to users[cite: 1191, 1195]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_4_8",
+    "domain": [
+      "USER_RIGHTS",
+      "GRIEVANCE"
+    ],
+    "raw_law": "Where a significant social media intermediary removes or disables access to any information... it has provided the user... with a notification explaining the action... and reasonable opportunity to dispute the action.",
+    "severity": "MEDIUM",
+    "rationale": "Ensures due process for users by requiring notification and an opportunity to be heard before or after content removal[cite: 1197, 1200, 1202]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_4_11",
+    "domain": [
+      "DATA_COLLECTION",
+      "USER_RIGHTS"
+    ],
+    "raw_law": "An online gaming intermediary... shall include the following information... (a) the policy related to withdrawal or refund... (b) the know-your-customer procedure followed by it for verifying the identity.",
+    "severity": "MEDIUM",
+    "rationale": "Mandates transparency in online gaming regarding refunds, winnings, and KYC procedures [cite: 1206-1208]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_4_12",
+    "domain": [
+      "DATA_COLLECTION",
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "An online gaming intermediary shall, before accepting any deposit in cash or kind from any user... identify such user and verify his identity: Provided that the procedure required to be followed by an entity regulated by the Reserve Bank of India... shall apply.",
+    "severity": "HIGH",
+    "rationale": "Requires strict KYC verification for real money gaming users, comparable to RBI standards[cite: 1211, 1212]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_RULE_4_13",
+    "domain": [
+      "INTERMEDIARY_DUTIES"
+    ],
+    "raw_law": "An online gaming intermediary... shall not itself finance by way of credit or enable financing to be offered by third party for the purpose of playing such online game.",
+    "severity": "HIGH",
+    "rationale": "Prohibits gaming intermediaries from offering credit or financing to users for playing games[cite: 1215]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_APPENDIX_B",
+    "domain": [
+      "CHILDREN_DATA",
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "The publisher of online curated content making available content that is classified as U/A 13+ or higher shall ensure that access control mechanisms, including parental locks, are made available for such content.",
+    "severity": "HIGH",
+    "rationale": "Mandates parental locks and access control for content rated U/A 13+ or higher[cite: 1484]."
+  },
+  {
+    "rule_id": "IT_RULES_2021_APPENDIX_C_c",
+    "domain": [
+      "CHILDREN_DATA",
+      "DATA_COLLECTION"
+    ],
+    "raw_law": "A publisher of online curated content which makes available content or programme that is classified as \"A\" shall implement a reliable age verification mechanism for viewership of such content.",
+    "severity": "HIGH",
+    "rationale": "Requires strict age verification for accessing adult (\"A\" rated) content[cite: 1485]."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_3_1_CISO",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "LIABILITY"
+    ],
+    "raw_law": "Nominate a Chief Information Security Officer (CISO) for IT Security and provide the details of this CISO (Point of Contact) to CERT-In... Formulate cyber security policy and assign roles and responsibilities.",
+    "severity": "CRITICAL",
+    "rationale": "Mandates the appointment of a CISO and formulation of security policy to ensure accountability and leadership in security posture."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_3_4_AUDIT",
+    "domain": [
+      "LOGGING_AUDIT",
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "Organisations should conduct an internal and external audit... Internal information security audit to be conducted at least once in 6 months. 3rd Party Security audits must be conducted at least once a year.",
+    "severity": "HIGH",
+    "rationale": "Requires regular internal (semi-annual) and external (annual) security audits to identify and rectify vulnerabilities."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_4_1_5_EMAIL_FILTER",
+    "domain": [
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "Deploy web and email filters on the network. Configure these devices to scan for known bad domains... Scan all emails, attachments, and downloads both on the mail gateway and hosts.",
+    "severity": "HIGH",
+    "rationale": "Enforces the deployment of web and email filters to block malicious content and scan attachments."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_4_5_3_DNS",
+    "domain": [
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "Organisation shall deploy their own local/internal DNS servers... Set default DNS pointing to organisation's DNS or DNS of National Informatics Centre (NIC)... block access to all DNS requests for outside/public DNS services.",
+    "severity": "CRITICAL",
+    "rationale": "Prevents DNS hijacking and tunneling by mandating internal or NIC DNS and blocking public DNS services."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_4_5_5_LOGGING",
+    "domain": [
+      "LOGGING_AUDIT",
+      "DATA_RETENTION"
+    ],
+    "raw_law": "Logs of perimeter security devices and end points should be integrated with Security Information and Event Management (SIEM)... logs... should be stored for a rolling period of 180 days.",
+    "severity": "CRITICAL",
+    "rationale": "Mandates centralized logging via SIEM and a specific retention period of 180 days for forensic analysis."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_4_5_8_VPN",
+    "domain": [
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "Ensure that Virtual Private Network (VPN) is used for accessing Network Resources from Remote location. Enable Multi Factor Authentication (MFA) for VPN accounts.",
+    "severity": "HIGH",
+    "rationale": "Restricts remote access to secure VPN channels enforced with Multi-Factor Authentication."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_4_5_11_RDP_BLOCK",
+    "domain": [
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "Ensure to block access to any remote desktop applications such as Anydesk, Teamviewer, Ammyy admin etc.",
+    "severity": "HIGH",
+    "rationale": "Prohibits the use of unauthorized remote desktop tools to prevent unmonitored external access."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_4_9_2_MAC_BINDING",
+    "domain": [
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "Allocating IP address: Ensure that IP addresses allocated to each network appliance/system/server is associated with their respective MAC address... Wired 802.1x based network admission control... should be allowed.",
+    "severity": "MEDIUM",
+    "rationale": "Prevents unauthorized devices from connecting to the network via MAC binding or 802.1x NAC."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_5_6_PASSWORD_POLICY",
+    "domain": [
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "Use complex passwords with a minimum length of 8 characters... Change passwords at least once in 120 days. Use and implement Multi Factor Authentication (MFA).",
+    "severity": "MEDIUM",
+    "rationale": "Defines strict password complexity, rotation (120 days), and MFA requirements for user accounts."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_6_1_7_SSL",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "SENSITIVE_DATA"
+    ],
+    "raw_law": "Ensure that all Websites and Applications are 'https' enabled with a valid SSL/TLS Certificate.",
+    "severity": "HIGH",
+    "rationale": "Mandates encryption in transit (HTTPS) for all government websites and applications."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_7_10_BACKUP",
+    "domain": [
+      "DATA_RETENTION",
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "Critical system data and file server software must have incremental backups taken daily... Backups must be kept in an area physically separate from the server.",
+    "severity": "HIGH",
+    "rationale": "Ensures business continuity through mandatory daily incremental backups and physical separation of backup storage."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_8_1_NDA",
+    "domain": [
+      "DATA_SHARING",
+      "LIABILITY",
+      "SENSITIVE_DATA"
+    ],
+    "raw_law": "Organisation should ensure that third party access to information should be restricted and should only be shared after signing Non-Disclosure-Agreement.",
+    "severity": "HIGH",
+    "rationale": "Protects sensitive data shared with vendors by requiring Non-Disclosure Agreements (NDAs)."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_10_1_1_SOFTWARE",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "LIABILITY"
+    ],
+    "raw_law": "Ensure that all office systems are installed with genuine copy of operating system and other application software solutions. Pirated or unsupported OS/software shall NOT be installed.",
+    "severity": "MEDIUM",
+    "rationale": "Prohibits the use of pirated or unsupported software to mitigate legal and security risks."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_10_1_7_USB",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "DATA_SHARING"
+    ],
+    "raw_law": "External USB storage devices (i.e., pen drive... mobile phone storage etc.) shall NOT be allowed, only authorized USB storage devices... shall be allowed on official systems.",
+    "severity": "HIGH",
+    "rationale": "Prevents data leakage and malware introduction by banning unauthorized USB storage devices."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_10_1_13_NTP",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "LOGGING_AUDIT"
+    ],
+    "raw_law": "Configure NTP services of NIC in all office systems (i.e. samayl.nic.in or samay2.nic.in) or NPL (time.nplindia.org).",
+    "severity": "LOW",
+    "rationale": "Ensures accurate time synchronization for logs and systems using designated reliable NTP sources."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_12_2_SOCIAL_MEDIA",
+    "domain": [
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "Always use a dedicated/separate email account for operating official social media platform accounts... Do NOT use personal email account for operating official social media account.",
+    "severity": "MEDIUM",
+    "rationale": "Separates official social media management from personal accounts to prevent compromise."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_14_2_INCIDENT_REPORTING",
+    "domain": [
+      "BREACH_RESPONSE",
+      "INTERMEDIARY_DUTIES"
+    ],
+    "raw_law": "The organisation... shall mandatorily report cyber incidents to CERT-In within 6 hours of noticing such incidents or being brought to notice about such incidents.",
+    "severity": "CRITICAL",
+    "rationale": "Mandates a strict 6-hour window for reporting cyber incidents to CERT-In, aligning with national directives."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_PART2_6_1_EMAIL_MFA",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "USER_RIGHTS"
+    ],
+    "raw_law": "Ensure that Kavach Multi-Factor Authentication is configured on the NIC Email Account.",
+    "severity": "HIGH",
+    "rationale": "Specific mandate for government employees to use Kavach MFA for securing official email accounts."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_10_3_7_DB_PASSWORD",
+    "domain": [
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "Use complex passwords for database accounts, with a minimum length of 15 characters, using a combination of capital letters, small letters, numbers and special characters.",
+    "severity": "HIGH",
+    "rationale": "Imposes stricter password requirements (15 chars) for database accounts due to their critical nature."
+  },
+  {
+    "rule_id": "GOV_SEC_GUIDELINE_4_6_1_SEGMENTATION",
+    "domain": [
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "Ensure segmentation of the network to create security zones for isolating sensitive traffic and secure critical IT systems.",
+    "severity": "HIGH",
+    "rationale": "Requires network segmentation to contain breaches and isolate critical assets from general traffic."
+  },
+  {
+    "rule_id": "CERTIN_NTP_SYNC",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "LOGGING_AUDIT"
+    ],
+    "raw_law": "All service providers, intermediaries, data centres, body corporate and Government organisations shall connect to the Network Time Protocol (NTP) Server of National Informatics Centre (NIC) or National Physical Laboratory (NPL) or with NTP servers traceable to these NTP servers, for synchronisation of all their ICT systems clocks. [cite: 19]",
+    "severity": "HIGH",
+    "rationale": "Ensures accurate and standard time sources for system logs to facilitate analysis and investigation of cyber incidents. [cite: 19, 20]"
+  },
+  {
+    "rule_id": "CERTIN_INCIDENT_REPORTING_WINDOW",
+    "domain": [
+      "BREACH_RESPONSE",
+      "INTERMEDIARY_DUTIES"
+    ],
+    "raw_law": "Any service provider, intermediary, data centre, body corporate and Government organisation shall mandatorily report cyber incidents as mentioned in Annexure I to CERT-In within 6 hours of noticing such incidents or being brought to notice about such incidents. [cite: 21]",
+    "severity": "CRITICAL",
+    "rationale": "Mandates a strict 6-hour window for reporting specific cyber incidents to allow for immediate coordination and emergency measures. [cite: 21, 53]"
+  },
+  {
+    "rule_id": "CERTIN_ASSISTANCE_ORDER",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "BREACH_RESPONSE"
+    ],
+    "raw_law": "When required by order/direction of CERT-In... the service provider/intermediary/data centre/body corporate is mandated to take action or provide information or any such assistance to CERT-In. [cite: 25]",
+    "severity": "HIGH",
+    "rationale": "Entities must comply with CERT-In orders for information or action to contribute towards mitigation and situational awareness. [cite: 25]"
+  },
+  {
+    "rule_id": "CERTIN_POINT_OF_CONTACT",
+    "domain": [
+      "SECURITY_PRACTICES",
+      "INTERMEDIARY_DUTIES"
+    ],
+    "raw_law": "The service providers, intermediaries, data centres, body corporate and Government organisations shall designate a Point of Contact to interface with CERT-In. [cite: 27]",
+    "severity": "MEDIUM",
+    "rationale": "Ensures a designated channel for all communications seeking information and providing directions for compliance. [cite: 29]"
+  },
+  {
+    "rule_id": "CERTIN_LOG_RETENTION_180_DAYS",
+    "domain": [
+      "LOGGING_AUDIT",
+      "DATA_RETENTION",
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "All service providers, intermediaries, data centres, body corporate and Government organisations shall mandatorily enable logs of all their ICT systems and maintain them securely for a rolling period of 180 days and the same shall be maintained within the Indian jurisdiction. [cite: 30]",
+    "severity": "CRITICAL",
+    "rationale": "Mandates the enabling and secure maintenance of system logs within India for 180 days to support incident analysis. [cite: 30]"
+  },
+  {
+    "rule_id": "CERTIN_SERVICE_PROVIDER_DATA_RETENTION",
+    "domain": [
+      "DATA_RETENTION",
+      "DATA_COLLECTION",
+      "INTERMEDIARY_DUTIES"
+    ],
+    "raw_law": "Data Centres, Virtual Private Server (VPS) providers, Cloud Service providers and Virtual Private Network Service (VPN Service) providers, shall be required to register... accurate information which must be maintained by them for a period of 5 years or longer duration as mandated by the law. [cite: 32]",
+    "severity": "CRITICAL",
+    "rationale": "Requires specific service providers (VPN, Cloud, etc.) to collect and retain subscriber data (names, IPs, emails, etc.) for a minimum of 5 years. [cite: 32, 33, 34, 35]"
+  },
+  {
+    "rule_id": "CERTIN_VIRTUAL_ASSET_KYC",
+    "domain": [
+      "SENSITIVE_DATA",
+      "DATA_RETENTION",
+      "DATA_COLLECTION"
+    ],
+    "raw_law": "The virtual asset service providers, virtual asset exchange providers and custodian wallet providers... shall mandatorily maintain all information obtained as part of Know Your Customer (KYC) and records of financial transactions for a period of five years. [cite: 42]",
+    "severity": "CRITICAL",
+    "rationale": "Ensures cyber security in payments/financial markets by mandating 5-year retention of KYC and transaction records for virtual assets. [cite: 42]"
+  },
+  {
+    "rule_id": "CERTIN_CRYPTO_TRANSACTION_LOGS",
+    "domain": [
+      "LOGGING_AUDIT",
+      "DATA_RETENTION",
+      "SENSITIVE_DATA"
+    ],
+    "raw_law": "With respect to transaction records, accurate information shall be maintained in such a way that individual transaction can be reconstructed along with the relevant elements... including IP addresses along with timestamps and time zones, transaction ID, the public keys... [cite: 44]",
+    "severity": "HIGH",
+    "rationale": "Requires detailed logging of virtual asset transactions to allow for reconstruction of individual transactions. [cite: 44]"
+  },
+  {
+    "rule_id": "DPDP_CONSENT_REQUIREMENT",
+    "domain": [
+      "CONSENT",
+      "DATA_COLLECTION"
+    ],
+    "raw_law": "A person may process the personal data of a Data Principal only in accordance with the provisions of this Act and for a lawful purpose, for which the Data Principal has given her consent or for certain legitimate uses[cite: 212, 213]. The consent given by the Data Principal shall be free, specific, informed, unconditional and unambiguous with a clear affirmative action[cite: 239, 240].",
+    "severity": "CRITICAL",
+    "rationale": "Mandates that personal data processing must be based on lawful grounds, primarily explicit and clear consent or specific legitimate uses."
+  },
+  {
+    "rule_id": "DPDP_NOTICE_OBLIGATION",
+    "domain": [
+      "CONSENT",
+      "DATA_COLLECTION"
+    ],
+    "raw_law": "Every request made to a Data Principal under section 6 for consent shall be accompanied or preceded by a notice given by the Data Fiduciary to the Data Principal, informing her the personal data and the purpose for which the same is proposed to be processed[cite: 215, 216, 217].",
+    "severity": "HIGH",
+    "rationale": "Requires transparency through a notice mechanism before or at the time of seeking consent for data collection."
+  },
+  {
+    "rule_id": "DPDP_CONSENT_WITHDRAWAL",
+    "domain": [
+      "CONSENT",
+      "USER_RIGHTS"
+    ],
+    "raw_law": "Where consent given by the Data Principal is the basis of processing of personal data, such Data Principal shall have the right to withdraw her consent at any time, with the ease of doing so being comparable to the ease with which such consent was given[cite: 250].",
+    "severity": "HIGH",
+    "rationale": "Ensures users have the ability to revoke consent easily, stopping further processing of their data."
+  },
+  {
+    "rule_id": "DPDP_DATA_RETENTION_ERASURE",
+    "domain": [
+      "DATA_RETENTION"
+    ],
+    "raw_law": "A Data Fiduciary shall, unless retention is necessary for compliance with any law for the time being in force, erase personal data, upon the Data Principal withdrawing her consent or as soon as it is reasonable to assume that the specified purpose is no longer being served, whichever is earlier[cite: 306, 307, 314].",
+    "severity": "CRITICAL",
+    "rationale": "Prohibits indefinite storage of data; mandates erasure once the purpose is fulfilled or consent is withdrawn."
+  },
+  {
+    "rule_id": "DPDP_SECURITY_SAFEGUARDS",
+    "domain": [
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "A Data Fiduciary shall protect personal data in its possession or under its control, including in respect of any processing undertaken by it or on its behalf by a Data Processor, by taking reasonable security safeguards to prevent personal data breach[cite: 304].",
+    "severity": "CRITICAL",
+    "rationale": "Imposes a strict obligation to implement security measures to prevent data breaches."
+  },
+  {
+    "rule_id": "DPDP_BREACH_NOTIFICATION",
+    "domain": [
+      "BREACH_RESPONSE"
+    ],
+    "raw_law": "In the event of a personal data breach, the Data Fiduciary shall give the Board and each affected Data Principal, intimation of such breach in such form and manner as may be prescribed[cite: 305].",
+    "severity": "CRITICAL",
+    "rationale": "Mandates immediate notification of data breaches to both the regulatory Board and the affected individuals."
+  },
+  {
+    "rule_id": "DPDP_CHILDREN_DATA_CONSENT",
+    "domain": [
+      "CHILDREN_DATA",
+      "CONSENT"
+    ],
+    "raw_law": "The Data Fiduciary shall, before processing any personal data of a child or a person with disability who has a lawful guardian obtain verifiable consent of the parent of such child or the lawful guardian, as the case may be[cite: 331].",
+    "severity": "CRITICAL",
+    "rationale": "Requires verifiable parental consent for processing any personal data belonging to minors."
+  },
+  {
+    "rule_id": "DPDP_CHILDREN_TRACKING_PROHIBITION",
+    "domain": [
+      "CHILDREN_DATA",
+      "DATA_COLLECTION"
+    ],
+    "raw_law": "A Data Fiduciary shall not undertake tracking or behavioural monitoring of children or targeted advertising directed at children[cite: 334].",
+    "severity": "CRITICAL",
+    "rationale": "Strictly bans behavioral tracking and targeted advertising for users under the age of 18."
+  },
+  {
+    "rule_id": "DPDP_SIGNIFICANT_FIDUCIARY_AUDIT",
+    "domain": [
+      "LOGGING_AUDIT",
+      "SECURITY_PRACTICES"
+    ],
+    "raw_law": "The Significant Data Fiduciary shall appoint an independent data auditor to carry out data audit, who shall evaluate the compliance of the Significant Data Fiduciary in accordance with the provisions of this Act[cite: 346, 354].",
+    "severity": "HIGH",
+    "rationale": "Imposes higher compliance standards, including independent audits, on entities classified as Significant Data Fiduciaries."
+  },
+  {
+    "rule_id": "DPDP_RIGHT_TO_ACCESS",
+    "domain": [
+      "USER_RIGHTS",
+      "DATA_SHARING"
+    ],
+    "raw_law": "The Data Principal shall have the right to obtain from the Data Fiduciary... a summary of personal data which is being processed... and the identities of all other Data Fiduciaries and Data Processors with whom the personal data has been shared[cite: 362, 363, 364].",
+    "severity": "HIGH",
+    "rationale": "Grants users the right to know what data is held and who it has been shared with."
+  },
+  {
+    "rule_id": "DPDP_RIGHT_TO_CORRECTION",
+    "domain": [
+      "USER_RIGHTS"
+    ],
+    "raw_law": "A Data Principal shall have the right to correction, completion, updating and erasure of her personal data for the processing of which she has previously given consent[cite: 377].",
+    "severity": "MEDIUM",
+    "rationale": "Empowers users to ensure their data is accurate, complete, and up-to-date."
+  },
+  {
+    "rule_id": "DPDP_GRIEVANCE_REDRESSAL",
+    "domain": [
+      "GRIEVANCE"
+    ],
+    "raw_law": "A Data Fiduciary shall establish an effective mechanism to redress the grievances of Data Principals[cite: 329]. The Data Fiduciary or Consent Manager shall respond to any grievances... within such period as may be prescribed[cite: 384].",
+    "severity": "MEDIUM",
+    "rationale": "Requires entities to have a functional system to handle and resolve user complaints regarding data processing."
+  },
+  {
+    "rule_id": "DPDP_DATA_ACCURACY",
+    "domain": [
+      "DATA_COLLECTION",
+      "DATA_SHARING"
+    ],
+    "raw_law": "Where personal data processed by a Data Fiduciary is likely to be used to make a decision that affects the Data Principal or disclosed to another Data Fiduciary, the Data Fiduciary processing such personal data shall ensure its completeness, accuracy and consistency[cite: 300, 301, 302].",
+    "severity": "HIGH",
+    "rationale": "Obligates fiduciaries to maintain accurate data when it impacts user decisions or is shared."
+  },
+  {
+    "rule_id": "DPDP_PENALTIES",
+    "domain": [
+      "LIABILITY"
+    ],
+    "raw_law": "Breach in observing the obligation of Data Fiduciary to take reasonable security safeguards to prevent personal data breach... May extend to two hundred and fifty crore rupees[cite: 658].",
+    "severity": "CRITICAL",
+    "rationale": "Establishes severe financial penalties for failure to implement security safeguards and prevent breaches."
+  }
+]

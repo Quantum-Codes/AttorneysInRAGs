@@ -1,0 +1,137 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+*.egg
+dist/
+build/
+
+# =========================
+# Virtual Environments
+# =========================
+.venv/
+venv/
+ENV/
+env/
+.python-version
+
+# =========================
+# Pytest / Testing
+# =========================
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# =========================
+# Logs
+# =========================
+*.log
+logs/
+log/
+
+# =========================
+# FastAPI / Uvicorn
+# =========================
+uvicorn.log
+gunicorn.log
+
+# =========================
+# Environment / Secrets
+# =========================
+.env
+.env.*
+secrets/
+*.pem
+*.key
+
+# =========================
+# Database / Local State
+# =========================
+*.sqlite3
+*.db
+data/
+local_data/
+
+# =========================
+# OS Files
+# =========================
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# =========================
+# Jupyter / Notebooks
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Node / Frontend (if added later)
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-lock.yaml
+
+# =========================
+# Docker
+# =========================
+*.pid
+docker-compose.override.yml
+
+# =========================
+# Cache / Temp
+# =========================
+.cache/
+.mypy_cache/
+.pytype/
+.pyright/
+ruff_cache/
+
+# =========================
+# Build / Export Artifacts
+# =========================
+*.tar
+*.zip
+*.gz
+*.rar
+*.7z
+
+# =========================
+# Coverage / Reports
+# =========================
+reports/
+test-reports/
+coverage-reports/
+
+# =========================
+# Local CLI Inputs
+# =========================
+*.txt
+!README.md
+!requirements.txt
