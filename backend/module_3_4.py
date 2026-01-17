@@ -3,6 +3,7 @@ from pathlib import Path
 from typing import Dict, Any, List
 import chromadb
 from sentence_transformers import SentenceTransformer
+from chromadb.errors import InvalidArgumentError
 
 def project_paths() -> Dict[str, Path]:
     """Resolve key project paths using pathlib, independent of CWD."""
@@ -49,7 +50,7 @@ def build_embeddings(model: SentenceTransformer, texts: list[str]) -> list[list[
     # Normalize embeddings for cosine: improves recall and consistency
     return model.encode(texts, normalize_embeddings=True).tolist()
 
-def process_matches(results: Dict[str, Any], original_texts: List[str], threshold: float = 0.45) -> List[Dict[str, Any]]:
+def process_matches(results: Dict[str, Any], original_texts: List[str], threshold: float = 0.40) -> List[Dict[str, Any]]:
     """
     Filters and formats ChromaDB query results.
     
@@ -95,10 +96,27 @@ def process_matches(results: Dict[str, Any], original_texts: List[str], threshol
 
     return accepted_rules
 
-def find_violations(original_sentences: List[str]) -> List[Dict[str, Any]]:
+def find_violations(original_sentences: List[Any]) -> List[Dict[str, Any]]:
     """
     Main pipeline function: Distill -> Embed -> Query -> Filter -> Format
     """
+
+    # modify format
+    """
+    {
+        "text": text_chunk,
+        "metadata": {
+            "domains": domains,       # e.g., ['LIABILITY', 'DATA_SHARING']
+            "filter_reason": reason   # e.g., "Matched 'indemnify'"
+        }
+    }
+
+    TO
+    sentences = ["sentences"] AND metadata = [{"domains": [...], "filter_reason": "..."}]
+    """
+    sentences = [item["text"] for item in original_sentences]
+    metadata = [item["metadata"] for item in original_sentences]
+    original_sentences = sentences
     # 1. Distill
     distilled_sentences = [legal_distill(text) for text in original_sentences]
     
@@ -108,14 +126,28 @@ def find_violations(original_sentences: List[str]) -> List[Dict[str, Any]]:
     # 3. Query (Fetch top 2 to check against threshold)
     # We query MORE than 1 (n_results=2) to handle cases where two different laws might apply,
     # but the threshold will ensure we don't return garbage.
-    raw_results = collection.query(
-        query_embeddings=embeddings,
-        n_results=2, 
-        # include=['metadatas', 'documents', 'distances'] is default
-    )
+    # Assuming 'detected_domains' is a list like ["DATA_RETENTION", "LOGGING_AUDIT"]
+    # Flatten domains and build a permissive where clause.
+    detected_domain_lists = [item.get("domains", []) for item in metadata]
+    flat_domains = sorted({d for lst in detected_domain_lists for d in lst if isinstance(d, str) and d})
+
+    # Attempt metadata prefilter; if rejected by Chroma, fallback to no filter.
+    if flat_domains:
+        # Use supported operator $in for exact matches on single-domain records
+        where_clause = {"domain": {"$in": flat_domains}}
+        raw_results = collection.query(
+            query_embeddings=embeddings,
+            n_results=2,
+            where=where_clause,
+        )
+    else:
+        raw_results = collection.query(
+            query_embeddings=embeddings,
+            n_results=2,
+        )
     
     # 4. Process & Filter
-    matches = process_matches(raw_results, original_sentences, threshold=0.45)
+    matches = process_matches(raw_results, original_sentences, threshold=0.40)
     
     return matches
 
