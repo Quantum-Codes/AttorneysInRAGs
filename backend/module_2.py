@@ -25,7 +25,7 @@ class RelevanceFilter:
             self.classifier = pipeline(
                 "zero-shot-classification",
                 model="valhalla/distilbart-mnli-12-1", 
-                device=-1 # -1 for CPU, 0 for GPU
+                device= 0 # -1 for CPU, 0 for GPU
             )
         except Exception as e:
             self.classifier = None
