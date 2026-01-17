@@ -1,31 +1,12 @@
 # THIS IS NOT SVO. BUT THIS REMOVES STOPWORDS AND REPEATS FOR THE COSINE SIMILARITY CALCULATION
 # THIS IS ACCEPTABLE
 
-import spacy
+import spacy, time
 
 nlp = spacy.load("en_core_web_sm")
 
 # Words that change legal meaning - NEVER remove these
 LEGAL_OPERATORS = {"not", "no", "never", "only", "unless", "except", "if", "then"}
-
-def legal_distill(text):
-    doc = nlp(text)
-    clean_tokens = []
-    
-    for token in doc:
-        # 1. Always keep our operators
-        if token.text.lower() in LEGAL_OPERATORS:
-            clean_tokens.append(token.text.lower())
-            continue
-            
-        # 2. Keep Nouns, Proper Nouns (Entities), and Verbs (Actions)
-        if token.pos_ in ["NOUN", "PROPN", "VERB"]:
-            # Use lemma to normalize (collect/collecting/collected -> collect)
-            # But avoid generic junk verbs
-            if token.lemma_.lower() not in ["occur", "apply", "be", "have"]:
-                clean_tokens.append(token.lemma_.lower())
-                
-    return " ".join(clean_tokens)
 
 def legal_distill_v2(text):
     doc = nlp(text)
@@ -51,9 +32,26 @@ def legal_distill_v2(text):
 tos_1 = "If a transfer of any Customer Data from Salesforce to Supplier occurs in connection with the Licensed Software then, notwithstanding anything to the contrary, Section 3(v) of these Software Terms shall apply."
 tos_2 = "Supplier will deliver the most current version of the Licensed Software to Salesforce via electronic delivery or load-and-leave services, and will not deliver tangible materials to Salesforce without Salesforce’s advance written consent"
 
-print(f"Distilled 1: {legal_distill(tos_1)}")
+t1 = time.time()
 print(f"Distilled 1: {legal_distill_v2(tos_1)}")
-# Output: if transfer customer data salesforce supplier
-print(f"Distilled 2: {legal_distill(tos_2)}")
 print(f"Distilled 2: {legal_distill_v2(tos_2)}")
-# Output: supplier not deliver tangible material salesforce advance write consent
+print(f"Time taken: {time.time() - t1} seconds")
+
+"""
+OUT:
+Distilled 1: if transfer customer data salesforce supplier connection licensed software then contrary section 3(v term
+Distilled 2: supplier deliver version licensed software salesforce delivery load leave service not material advance write consent
+Time taken: 0.012683868408203125 seconds
+"""
+
+{
+    "summary": "heheheha",
+    "safety_score": 0.98,
+    "violations": [
+        {
+            "violating_rule": "FROM TOS",
+            "actual_rule": "FROM ACTUAL POLICY DOCS",
+            "source": "WHAT PART OF THE DOC IT CAME FROM + WHICH DOC: '[cite: xxx] IT act'",
+        }
+    ]
+}
