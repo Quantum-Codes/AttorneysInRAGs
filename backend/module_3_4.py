@@ -8,7 +8,7 @@ nlp = spacy.load("en_core_web_sm")
 # Words that change legal meaning - NEVER remove these
 LEGAL_OPERATORS = {"not", "no", "never", "only", "unless", "except", "if", "then"}
 
-def legal_distill_v2(text):
+def legal_distill(text):
     doc = nlp(text)
     clean_tokens = []
     
@@ -29,13 +29,14 @@ def legal_distill_v2(text):
     return " ".join(final_tokens)
 
 # --- TEST ---
-tos_1 = "If a transfer of any Customer Data from Salesforce to Supplier occurs in connection with the Licensed Software then, notwithstanding anything to the contrary, Section 3(v) of these Software Terms shall apply."
-tos_2 = "Supplier will deliver the most current version of the Licensed Software to Salesforce via electronic delivery or load-and-leave services, and will not deliver tangible materials to Salesforce without Salesforce’s advance written consent"
+if __name__ == "__main__":
+    tos_1 = "If a transfer of any Customer Data from Salesforce to Supplier occurs in connection with the Licensed Software then, notwithstanding anything to the contrary, Section 3(v) of these Software Terms shall apply."
+    tos_2 = "Supplier will deliver the most current version of the Licensed Software to Salesforce via electronic delivery or load-and-leave services, and will not deliver tangible materials to Salesforce without Salesforce’s advance written consent"
 
-t1 = time.time()
-print(f"Distilled 1: {legal_distill_v2(tos_1)}")
-print(f"Distilled 2: {legal_distill_v2(tos_2)}")
-print(f"Time taken: {time.time() - t1} seconds")
+    t1 = time.time()
+    print(f"Distilled 1: {legal_distill(tos_1)}")
+    print(f"Distilled 2: {legal_distill(tos_2)}")
+    print(f"Time taken: {time.time() - t1} seconds")
 
 """
 OUT:
