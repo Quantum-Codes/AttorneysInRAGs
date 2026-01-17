@@ -1,0 +1,70 @@
+{
+   "ids":[
+      [
+         "IT_ACT_SEC_72A",
+         "IT_RULES_2021_RULE_4_13"
+      ],
+      [
+         "IT_ACT_SEC_6A",
+         "IT_ACT_SEC_72A"
+      ]
+   ],
+   "embeddings":"None",
+   "documents":[
+      [
+         "Prohibits service providers and intermediaries from disclosing personal information obtained under contract to third parties without consent",
+         "Prohibits gaming intermediaries from offering credit or financing to users for playing games"
+      ],
+      [
+         "Authorizes service providers to deliver government services electronically and collect/retain service charges",
+         "Prohibits service providers and intermediaries from disclosing personal information obtained under contract to third parties without consent"
+      ]
+   ],
+   "uris":"None",
+   "included":[
+      "metadatas",
+      "documents",
+      "distances"
+   ],
+   "data":"None",
+   "metadatas":[
+      [
+         {
+            "domain":"DATA_SHARING, CONSENT, SENSITIVE_DATA",
+            "raw_law":"Any person including an intermediary who, while providing services under the terms of lawful contract, has secured access to any material containing personal information about another person, with the intent to cause or knowing that he is likely to cause wrongful loss or wrongful gain discloses, without the consent of the person concerned, or in breach of a lawful contract, such material to any other person, shall be punished.",
+            "rule_id":"IT_ACT_SEC_72A",
+            "severity":"HIGH"
+         },
+         {
+            "raw_law":"An online gaming intermediary... shall not itself finance by way of credit or enable financing to be offered by third party for the purpose of playing such online game.",
+            "domain":"INTERMEDIARY_DUTIES",
+            "rule_id":"IT_RULES_2021_RULE_4_13",
+            "severity":"HIGH"
+         }
+      ],
+      [
+         {
+            "raw_law":"The appropriate Government may... authorise any service provider authorised under sub-section (1) to collect, retain and appropriate such service charges, as may be prescribed... for the purpose of providing such services.",
+            "rule_id":"IT_ACT_SEC_6A",
+            "severity":"MEDIUM",
+            "domain":"DATA_COLLECTION, INTERMEDIARY_DUTIES"
+         },
+         {
+            "raw_law":"Any person including an intermediary who, while providing services under the terms of lawful contract, has secured access to any material containing personal information about another person, with the intent to cause or knowing that he is likely to cause wrongful loss or wrongful gain discloses, without the consent of the person concerned, or in breach of a lawful contract, such material to any other person, shall be punished.",
+            "domain":"DATA_SHARING, CONSENT, SENSITIVE_DATA",
+            "rule_id":"IT_ACT_SEC_72A",
+            "severity":"HIGH"
+         }
+      ]
+   ],
+   "distances":[
+      [
+         0.3144792318344116,
+         0.3676091432571411
+      ],
+      [
+         0.3518085479736328,
+         0.35217833518981934
+      ]
+   ]
+}
