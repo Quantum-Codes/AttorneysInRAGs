@@ -1,0 +1,7 @@
+{
+  "mandatory_domains": [
+    "DATA_RETENTION",
+    "CONSENT",
+    "SECURITY_PRACTICES"
+  ]
+}

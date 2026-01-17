@@ -1,0 +1,7 @@
+{
+  "mode": "LEGAL_DOMINANT",
+  "critical_overrides": [
+    "DPDP_PENALTIES",
+    "CERTIN_INCIDENT_REPORTING_WINDOW"
+  ]
+}
